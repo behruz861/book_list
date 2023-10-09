@@ -1,0 +1,6 @@
+<h2>Обновление информации о книге</h2>
+<form method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Обновить">
+  <a href="{% url 'book_detail' book.slug %}">Отменить</a>
+</form>

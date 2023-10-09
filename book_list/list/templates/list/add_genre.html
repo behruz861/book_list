@@ -1,0 +1,7 @@
+<form method="post" action="{% url 'add_genre' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Genre</button>
+    {% if form.errors %}
+    {% endif %}
+</form>

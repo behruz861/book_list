@@ -1,0 +1,8 @@
+{% for book in books %}
+  <div>
+    <h3>{{ book.title }}</h3>
+    <a href="{% url 'book_detail' book.slug %}">Перейти</a>
+    <a href="{% url 'book_update' book.slug %}">Обновить</a>
+    <a href="{% url 'book_delete' book.slug %}">Удалить</a>
+  </div>
+{% endfor %}

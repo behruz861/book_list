@@ -1,0 +1,29 @@
+<h2>Добавить книгу</h2>
+<form method="POST">
+  {% csrf_token %}
+  <label for="title">Название:</label>
+  <input type="text" id="title" name="title" required>
+  <br>
+  <label for="author">Автор:</label>
+  <select id="author" name="author" required>
+    {% for author in authors %}
+      <option value="{{ author.id }}">{{ author.first_name }} {{ author.last_name }}</option>
+    {% endfor %}
+  </select>
+  <br>
+  <label for="year_published">Год издания:</label>
+  <input type="date" id="year_published" name="year_published" required>
+  <br>
+  <label for="genres">Жанры:</label>
+  <select id="genres" name="genres" multiple required>
+    {% for genre in genres %}
+      <option value="{{ genre.id }}">{{ genre.name }}</option>
+    {% endfor %}
+  </select>
+  <br>
+  <label for="rating">Рейтинг:</label>
+  <input type="number" id="rating" name="rating" min="1" max="10" required>
+  <br>
+  <input type="submit" value="Добавить книгу">
+  <a href="{% url 'book_list' %}">Отменить</a>
+</form>

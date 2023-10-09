@@ -1,0 +1,7 @@
+<h2>Удалить книгу</h2>
+<form method="POST">
+  {% csrf_token %}
+  <p>Вы действительно хотите удалить книгу "{{ book.title }}"</p>
+  <input type="submit" value="Удалить">
+  <a href="{% url 'book_detail' book.slug %}">Отказаться от удаления</a>
+</form>
